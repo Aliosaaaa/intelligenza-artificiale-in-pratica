@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prima chiacchierata gratuita — AI Osha</title>
+<meta name="description" content="30 minuti gratuiti con Aliosha: capiamo cosa può fare l'intelligenza artificiale per la tua attività. Persona vera, niente robot.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0D1117;--navy2:#1E3A5F;--cyan:#00A8E8;--amber:#F5A623;--txt:#E8EEF4;--muted:#9FB0C0;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--navy);color:var(--txt);line-height:1.6;background-image:radial-gradient(900px 420px at 70% -10%,rgba(0,168,232,.16),transparent 60%),radial-gradient(700px 380px at 5% 110%,rgba(245,166,35,.09),transparent 60%)}
+.grad{background:linear-gradient(90deg,var(--cyan),var(--amber));-webkit-background-clip:text;background-clip:text;color:transparent}
+.wrap{max-width:640px;margin:0 auto;padding:0 22px 60px}
+nav{padding:20px 0;display:flex;justify-content:space-between;align-items:center}
+nav .logo{font-weight:800;font-size:1.25rem}
+nav .logo span{color:var(--cyan)}
+nav a{color:var(--muted);text-decoration:none;font-size:.85rem}
+header{text-align:center;padding:26px 0 30px}
+h1{font-size:clamp(1.7rem,4.6vw,2.4rem);font-weight:800;line-height:1.15;margin-bottom:12px}
+header p{color:var(--muted);max-width:34rem;margin:0 auto}
+.card{background:rgba(30,58,95,.35);border:1px solid rgba(0,168,232,.25);border-radius:20px;padding:30px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+label{display:block;font-size:.85rem;font-weight:700;margin:18px 0 6px}
+label small{font-weight:400;color:var(--muted)}
+input,select,textarea{width:100%;padding:13px 15px;border-radius:12px;border:1px solid rgba(159,176,192,.3);background:rgba(13,17,23,.7);color:var(--txt);font-family:inherit;font-size:.98rem}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--cyan);border-color:transparent}
+textarea{min-height:84px;resize:vertical}
+.hint{font-size:.75rem;color:var(--muted);margin-top:4px}
+.sep{border:none;border-top:1px solid rgba(159,176,192,.15);margin:26px 0 6px}
+.sep-label{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);margin-top:14px}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:.75rem;color:var(--muted);margin:20px 0 18px}
+.consent input{width:auto;margin-top:3px}
+.btn{display:block;width:100%;padding:17px;border:none;border-radius:14px;background:linear-gradient(90deg,var(--cyan),#0077b6);color:#fff;font-family:inherit;font-size:1.05rem;font-weight:800;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,168,232,.35)}
+.btn:disabled{opacity:.6;cursor:wait}
+.after{text-align:center;font-size:.78rem;color:var(--muted);margin-top:12px}
+.form-msg{display:none;margin-top:12px;font-size:.9rem;text-align:center;color:var(--amber)}
+footer{border-top:1px solid rgba(159,176,192,.12);padding:26px 0;text-align:center;color:var(--muted);font-size:.75rem}
+footer p{margin-bottom:6px}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<nav><div class="logo">AI<span>Osha</span></div><a href="https://aiosha.it">aiosha.it</a></nav>
+
+<header>
+ <h1>Prima chiacchierata <span class="grad">gratuita</span></h1>
+ <p><b style="color:var(--txt)">30 minuti, io e te</b>: parliamo della tua attività e ti lascio 2-3 idee applicabili da subito — anche se poi non ci lavoriamo insieme. Compila qui sotto: più mi racconti, più la call vale.</p>
+</header>
+
+<div class="card">
+<form id="callform" autocomplete="on">
+
+ <label for="nome">Nome e cognome *</label>
+ <input type="text" id="nome" name="nome" required placeholder="Es. Luca Rossi">
+
+ <label for="email">Email *</label>
+ <input type="email" id="email" name="email" required placeholder="nome@esempio.it">
+
+ <label for="azienda">Nome dell'attività <small>(facoltativo)</small></label>
+ <input type="text" id="azienda" name="azienda" placeholder="Es. Rossi Ristrutturazioni, Pescia">
+
+ <label for="telefono">Telefono / WhatsApp <small>(facoltativo, ma così ti chiamo io)</small></label>
+ <input type="tel" id="telefono" name="telefono" placeholder="Es. 333 1234567">
+
+ <label for="sito">Sito web <small>(facoltativo)</small></label>
+ <input type="text" id="sito" name="sito" placeholder="Es. www.esempio.it">
+
+ <hr class="sep"><div class="sep-label">Due domande per arrivare preparato</div>
+
+ <label for="conosci_ai">Conosci già l'intelligenza artificiale?</label>
+ <select id="conosci_ai" name="conosci_ai">
+  <option value="">Scegli...</option>
+  <option>No, parto da zero</option>
+  <option>L'ho provata qualche volta, poi ho lasciato perdere</option>
+  <option>La uso ogni tanto</option>
+  <option>La uso spesso</option>
+ </select>
+
+ <label for="ai_cosa">Se la usi: cosa usi e per fare cosa? <small>(facoltativo)</small></label>
+ <input type="text" id="ai_cosa" name="ai_cosa" placeholder="Es. ChatGPT per le email, ogni tanto">
+
+ <label for="abbonamenti">Avete abbonamenti attivi ad agenzie o software?</label>
+ <input type="text" id="abbonamenti" name="abbonamenti" placeholder="Es. agenzia social, gestionale, sito in canone, newsletter...">
+
+ <label for="tempo">Quale attività vi fa perdere più tempo?</label>
+ <input type="text" id="tempo" name="tempo" placeholder="Es. preventivi, email coi clienti, burocrazia, social...">
+
+ <label for="budget">Quali attività o spese si mangiano più budget ogni mese?</label>
+ <input type="text" id="budget" name="budget" placeholder="Es. l'agenzia, la pubblicità, il gestionale...">
+
+ <label for="idea">Hai un'idea che vorresti far partire ma non sai da dove iniziare? <small>(facoltativo)</small></label>
+ <textarea id="idea" name="idea" placeholder="Racconta pure in due righe, senza formalità"></textarea>
+
+ <label for="argomento">Di cosa vorresti parlare nella chiacchierata?</label>
+ <textarea id="argomento" name="argomento" placeholder="Anche solo: 'voglio capire da dove si comincia'"></textarea>
+
+ <input type="text" name="azienda_hp" style="display:none" tabindex="-1" autocomplete="off">
+
+ <div class="consent">
+  <input type="checkbox" id="consenso" required>
+  <label for="consenso" style="margin:0;font-weight:400">Acconsento al trattamento dei dati per essere ricontattato sulla richiesta. <a href="https://aiosha.it/privacy-policy.html" style="color:var(--cyan)">Informativa privacy</a></label>
+ </div>
+
+ <button class="btn" type="submit" id="btnsubmit">PRENOTA LA CHIACCHIERATA →</button>
+ <p class="after">Al passo dopo scegli tu giorno e ora dal mio calendario. Risponde una persona vera, niente robot.</p>
+ <p class="form-msg" id="formmsg"></p>
+</form>
+</div>
+</div>
+
+<footer><div class="wrap" style="padding-bottom:0">
+ <p><b>AI Osha</b> — Aliosha Battaglini · P.IVA 02097940478 · Pescia (PT) · <a href="mailto:info@aiosha.it" style="color:var(--cyan)">info@aiosha.it</a></p>
+ <p><a href="https://aiosha.it/privacy-policy.html" style="color:var(--muted)">Privacy Policy</a></p>
+</div></footer>
+
+<script>
+// === CONFIGURA QUI ===
+const GAS_URL = "INCOLLA_QUI_URL_WEBHOOK_GAS_CALL"; // deploy di call_gratuita_webhook.gs
+// =====================
+document.getElementById('callform').addEventListener('submit', async function(e){
+  e.preventDefault();
+  if(this.azienda_hp.value){ return; } // honeypot
+  const btn = document.getElementById('btnsubmit'), msg = document.getElementById('formmsg');
+  btn.disabled = true; btn.textContent = "Un attimo...";
+  const campi = ['nome','email','azienda','telefono','sito','conosci_ai','ai_cosa','abbonamenti','tempo','budget','idea','argomento'];
+  const dati = {};
+  campi.forEach(c => dati[c] = (document.getElementById(c).value || '').trim());
+  dati.fonte = 'form-call';
+  try{
+    if(GAS_URL.startsWith("http")){
+      await fetch(GAS_URL, {method:"POST", mode:"no-cors",
+        headers:{"Content-Type":"application/x-www-form-urlencoded"},
+        body: new URLSearchParams(dati)});
+    }
+    window.location.href = "grazie.html";
+  }catch(err){
+    msg.style.display = "block";
+    msg.textContent = "Ops, qualcosa non ha funzionato. Riprova, o scrivimi su WhatsApp: 331 388 3929";
+    btn.disabled = false; btn.textContent = "PRENOTA LA CHIACCHIERATA →";
+  }
+});
+</script>
+</body>
+</html>
