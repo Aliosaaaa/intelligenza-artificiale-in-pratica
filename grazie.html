@@ -36,5 +36,12 @@ footer{margin-top:44px;padding-top:18px;border-top:1px solid rgba(159,176,192,.1
 <footer>
  <p><b>AI Osha</b> — Aliosha Battaglini · P.IVA 02097940478 · Pescia (PT) · info@aiosha.it</p>
 </footer>
+<script>
+(function(){
+  const GAS_URL = "https://script.google.com/macros/s/AKfycbxii5crbEBmv_zqOR48kpreUeQVQVH8r_fH4RE2FgorotF3PwelsES80N5arKRH97b3qA/exec";
+  const dev = /Mobi|Android/i.test(navigator.userAgent) ? 'mobile' : 'desktop';
+  fetch(GAS_URL + '?beacon=1&pagina=grazie&dev=' + dev).catch(()=>{});
+})();
+</script>
 </body>
 </html>

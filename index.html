@@ -130,7 +130,7 @@ document.getElementById('callform').addEventListener('submit', async function(e)
   const campi = ['nome','email','azienda','telefono','sito','conosci_ai','ai_cosa','abbonamenti','tempo','budget','idea','argomento'];
   const dati = {};
   campi.forEach(c => dati[c] = (document.getElementById(c).value || '').trim());
-  dati.fonte = 'form-call';
+  dati.fonte = 'form-call' + (new URLSearchParams(location.search).get('src') ? '/' + new URLSearchParams(location.search).get('src') : '');
   try{
     if(GAS_URL.startsWith("http")){
       await fetch(GAS_URL, {method:"POST", mode:"no-cors",
@@ -144,6 +144,14 @@ document.getElementById('callform').addEventListener('submit', async function(e)
     btn.disabled = false; btn.textContent = "PRENOTA LA CHIACCHIERATA →";
   }
 });
+// beacon visita (niente cookie: solo un conteggio con sorgente)
+(function(){
+  if(!GAS_URL.startsWith('http')) return;
+  const q = new URLSearchParams(location.search);
+  const dev = /Mobi|Android/i.test(navigator.userAgent) ? 'mobile' : 'desktop';
+  fetch(GAS_URL + '?beacon=1&pagina=form&src=' + encodeURIComponent(q.get('src')||'') +
+        '&ref=' + encodeURIComponent(document.referrer||'') + '&dev=' + dev).catch(()=>{});
+})();
 </script>
 </body>
 </html>
